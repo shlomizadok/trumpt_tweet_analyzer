@@ -28,6 +28,14 @@ afterAll(() => {
 
 describe('Dashboard', () => {
   it('renders loading state initially', () => {
+    /*
+      This test raises console.error:
+      act(() => {
+        fire events that update state
+      });
+      however, when wrapping the render function with act, the error is gone. but it fails the test - as act already loads the other components.
+      @todo: find a way to fix this.
+    */
     render(<Dashboard />);
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });

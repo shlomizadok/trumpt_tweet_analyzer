@@ -9,6 +9,6 @@ class CreateWordCounts < ActiveRecord::Migration[8.0]
     end
 
     add_index :word_counts, :word
-    add_index :word_counts, [:word, :count]
+    add_index :word_counts, [ :word, :count ]
   end
 end

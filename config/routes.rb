@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   namespace :api do
-    resources :word_counts, only: [:index, :show]
-    resources :statistics, only: [:index]
+    resources :word_counts, only: [ :index, :show ]
+    resources :statistics, only: [ :index ]
   end
 
   # Defines the root path route ("/")
-  root 'home#index'
-  get '*path', to: 'home#index', constraints: ->(req) { !req.xhr? && req.format.html? }
+  root "home#index"
+  get "*path", to: "home#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

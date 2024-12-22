@@ -6,7 +6,7 @@ class CreateLinkedPages < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
-    
+
     add_index :linked_pages, :url, unique: true
   end
 end

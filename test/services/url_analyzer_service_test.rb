@@ -22,12 +22,12 @@ class UrlAnalyzerServiceTest < ActiveSupport::TestCase
   test "counts words in content" do
     content = "This russia scandal is about russia and china"
     linked_page = UrlAnalyzerService.analyze_page(@tweet, "https://example.com", content)
-    
+
     # Verify word counts were created
-    assert_equal 2, linked_page.word_counts.find_by(word: 'russia').count
-    assert_equal 1, linked_page.word_counts.find_by(word: 'scandal').count
-    assert_equal 1, linked_page.word_counts.find_by(word: 'china').count
-    assert_equal 0, linked_page.word_counts.find_by(word: 'conspiracy').count
-    assert_equal 0, linked_page.word_counts.find_by(word: 'outrage').count
+    assert_equal 2, linked_page.word_counts.find_by(word: "russia").count
+    assert_equal 1, linked_page.word_counts.find_by(word: "scandal").count
+    assert_equal 1, linked_page.word_counts.find_by(word: "china").count
+    assert_equal 0, linked_page.word_counts.find_by(word: "conspiracy").count
+    assert_equal 0, linked_page.word_counts.find_by(word: "outrage").count
   end
 end

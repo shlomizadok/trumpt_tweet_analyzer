@@ -6,7 +6,7 @@ namespace :tweets do
 
     Tweet.find_each do |tweet|
       AnalyzeUrlsJob.perform_later(tweet.id)
-      
+
       processed += 1
       if processed % 100 == 0
         puts "Queued #{processed} of #{total} tweets for analysis..."

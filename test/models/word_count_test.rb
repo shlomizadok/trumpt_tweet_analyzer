@@ -37,6 +37,6 @@ class WordCountTest < ActiveSupport::TestCase
   test "most_frequent returns words in correct order" do
     results = WordCount.most_frequent
     # Assuming we have some word counts in our fixtures
-    assert_equal ["test", "example"], results.map(&:word)
+    assert_equal [ "test", "example" ], results.map(&:word)
   end
 end

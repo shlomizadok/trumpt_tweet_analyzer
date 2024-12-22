@@ -3,8 +3,8 @@ module Api
     def index
       data = WordCount.joins(:linked_page)
         .group(:word)
-        .select('word, SUM(count) as total_count')
-        .order('total_count DESC')
+        .select("word, SUM(count) as total_count")
+        .order("total_count DESC")
         .map do |record|
           {
             word: record.word,
@@ -17,13 +17,13 @@ module Api
 
     def show
       word = params[:id].downcase
-      return render json: { error: 'Invalid word' }, status: :bad_request unless valid_word?(word)
+      return render json: { error: "Invalid word" }, status: :bad_request unless valid_word?(word)
 
       urls = LinkedPage.joins(:word_counts)
                       .where(word_counts: { word: word })
-                      .where('word_counts.count > 0')
-                      .select('linked_pages.url, word_counts.count')
-                      .order('word_counts.count DESC')
+                      .where("word_counts.count > 0")
+                      .select("linked_pages.url, word_counts.count")
+                      .order("word_counts.count DESC")
                       .map do |page|
                         {
                           url: page.url,

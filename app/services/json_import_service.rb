@@ -1,25 +1,25 @@
 class JsonImportService
   def self.import_from_file(file_path)
     puts "Starting import..."
-    
+
     json_data = File.read(file_path)
     tweets = JSON.parse(json_data)
-    
+
     total = tweets.size
     imported = 0
-    
+
     Tweet.transaction do
       tweets.each_with_index do |tweet_data, index|
         # Parse the Twitter date format
-        created_at = Time.parse(tweet_data['date']) rescue nil
-        
-        tweet = Tweet.create_or_find_by(tweet_id: tweet_data['id'].to_s) do |t|
-          t.content = tweet_data['text']
-          t.retweet_count = tweet_data['retweets']
-          t.favorite_count = tweet_data['favorites']
+        created_at = Time.parse(tweet_data["date"]) rescue nil
+
+        tweet = Tweet.create_or_find_by(tweet_id: tweet_data["id"].to_s) do |t|
+          t.content = tweet_data["text"]
+          t.retweet_count = tweet_data["retweets"]
+          t.favorite_count = tweet_data["favorites"]
           t.tweet_created_at = created_at
           t.raw_data = tweet_data
-          t.urls = extract_urls_from_text(tweet_data['text'])
+          t.urls = extract_urls_from_text(tweet_data["text"])
         end
 
         imported += 1

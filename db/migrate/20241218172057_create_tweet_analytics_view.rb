@@ -3,7 +3,7 @@ class CreateTweetAnalyticsView < ActiveRecord::Migration[8.0]
   def up
     execute <<-SQL
       CREATE MATERIALIZED VIEW tweet_analytics AS
-      SELECT 
+      SELECT#{' '}
         date_trunc('hour', tweet_created_at) AS hour,
         COUNT(*) as tweet_count,
         SUM(retweet_count) as total_retweets,
