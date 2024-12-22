@@ -1,11 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  word: MyString
-  count: 1
+  word: "test"
+  count: 5
   linked_page: one
 
 two:
-  word: MyString
-  count: 1
+  word: "example"
+  count: 3
   linked_page: two

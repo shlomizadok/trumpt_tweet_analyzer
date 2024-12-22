@@ -1,15 +1,43 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  tweet_id: MyString
-  content: MyText
-  retweet_count: 1
-  favorite_count: 1
-  created_at: 2024-12-18 19:00:47
+  tweet_id: "123456789"
+  content: "Test tweet one"
+  retweet_count: 5
+  favorite_count: 10
+  tweet_created_at: <%= Time.current %>
+  raw_data: <%= { text: "Test tweet one" }.to_json %>
 
 two:
-  tweet_id: MyString
-  content: MyText
-  retweet_count: 1
-  favorite_count: 1
-  created_at: 2024-12-18 19:00:47
+  tweet_id: "987654321"
+  content: "Test tweet two"
+  retweet_count: 3
+  favorite_count: 7
+  tweet_created_at: <%= Time.current %>
+  raw_data: <%= { text: "Test tweet two" }.to_json %>
+
+# Create 24 tweets, one for each hour of the day
+<% 24.times do |hour| %>
+hour_<%= hour %>:
+  tweet_id: <%= "#{hour}".rjust(10, '0') %>
+  content: "Test tweet at hour <%= hour %>"
+  retweet_count: <%= rand(100) %>
+  favorite_count: <%= rand(100) %>
+  tweet_created_at: <%= Time.current.beginning_of_day + hour.hours %>
+  raw_data: <%= { text: "Test tweet at hour #{hour}" }.to_json %>
+<% end %>
+
+yesterday:
+  tweet_id: "3434343434"
+  content: "Test tweet yesterday"
+  retweet_count: 3
+  favorite_count: 7
+  tweet_created_at: <%= Time.current - 1.day %>
+  raw_data: <%= { text: "Test tweet yesterday" }.to_json %>
+
+last_week:
+  tweet_id: "456456456"
+  content: "Test tweet last week"
+  retweet_count: 8
+  favorite_count: 15
+  tweet_created_at: <%= Time.current - 1.week %>
+  raw_data: <%= { text: "Test tweet last week" }.to_json %>
