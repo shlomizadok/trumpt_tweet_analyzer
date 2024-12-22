@@ -1,0 +1,2 @@
+module Api::WordCountsHelper
+end
