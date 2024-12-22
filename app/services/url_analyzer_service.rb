@@ -3,8 +3,6 @@ require 'httparty'
 require 'nokogiri'
 
 class UrlAnalyzerService
-  TRACKED_WORDS = %w[conspiracy russia scandal outrage china]
-
   # Disclaimer: This method was built with the help of claude.ai
   def self.analyze_urls_from_tweet(tweet)
     urls = extract_urls(tweet.content)
@@ -48,7 +46,7 @@ class UrlAnalyzerService
       # Delete existing word counts to prevent duplicates
       linked_page.word_counts.delete_all
       
-      TRACKED_WORDS.each do |word|
+      AppConstants::TRACKED_WORDS.each do |word|
         count = content.scan(/\b#{word}\b/i).size
         Rails.logger.info "Found #{count} occurrences of '#{word}' in #{url}"
         

@@ -2,7 +2,7 @@ require "test_helper"
 
 class WordCountTest < ActiveSupport::TestCase
   def setup
-    @linked_page = linked_pages(:one)  # We'll need to create this fixture
+    @linked_page = linked_pages(:one)
     @word_count = WordCount.new(
       word: "test",
       count: 5,

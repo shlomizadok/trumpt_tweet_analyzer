@@ -15,7 +15,7 @@ const WordExplorerPage = () => {
         <select 
           value={selectedWord}
           onChange={(e) => setSelectedWord(e.target.value)}
-          className="border rounded py-4 px-2"
+          className="border rounded px-5 py-2"
         >
           {words.map(word => (
             <option key={word} value={word}>{word}</option>

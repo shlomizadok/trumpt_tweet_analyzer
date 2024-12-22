@@ -1,5 +1,4 @@
 require 'test_helper'
-# add stub_request
 require 'webmock/minitest'
 
 class AnalyzeUrlsJobTest < ActiveJob::TestCase
