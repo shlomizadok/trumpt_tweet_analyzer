@@ -82,7 +82,7 @@ gem "react-rails", "~> 3.2"
 gem "foreman"
 
 # CSS Framework
-gem "tailwindcss-rails", "~> 3.0"
+gem "tailwindcss-rails", "~> 3.1"
 
 # Sprockets Support
 gem "sprockets-rails"
