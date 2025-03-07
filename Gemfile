@@ -70,7 +70,7 @@ end
 # Additional Gems
 gem "nokogiri", "~> 1.17"
 gem "httparty", "~> 0.22.0"
-gem "sidekiq", "~> 7.3"
+gem "sidekiq", "~> 8.0"
 gem "chartkick", "~> 5.1"
 gem "groupdate", "~> 6.5"
 gem "whenever", "~> 1.0"
