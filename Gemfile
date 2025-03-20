@@ -68,7 +68,7 @@ group :test do
 end
 
 # Additional Gems
-gem "nokogiri", "~> 1.17"
+gem "nokogiri", "~> 1.18"
 gem "httparty", "~> 0.22.0"
 gem "sidekiq", "~> 7.3"
 gem "chartkick", "~> 5.1"
